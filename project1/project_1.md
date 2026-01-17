@@ -320,8 +320,58 @@ $$
 $$
 
 Several of these eigenvalues have negative real components. For instance, $\lambda_{2,3}=-0.0699\pm0.1180i$. Since these real components are negative, the statement that all eigenvalues have a positive real component is false.
-<br>
+<br><br>
 
+$\textbf{Question 4, Part C}$
+
+Across all the trials ($n=6$, $n=20$, and several omitted trials such as $n=10$), I observed that there seems to be an upper bound on the absolute value of the eigenvalues. Specifically, there always seems to be one eigenvalue equal to 1.0000, and the absolute value of every other eigenvalue $\lambda\le1$.
+
+Consider the eigenvalue magnitudes for the $6\times6$ matrix shown in part A.
+
+$$
+\begin{bmatrix}
+1.0000 \\
+0.2136 \\
+0.2136 \\
+0.0106 \\
+0.2249 \\
+0.1753
+\end{bmatrix}
+$$
+
+This was obtained with the following code:
+```matlab
+disp(abs(e));
+```
+
+Consider the following eigenvalue magnitudes for the $20\times20$ matrix provided in part B.
+$$
+\begin{bmatrix}
+1.0000 \\
+0.1372 \\
+0.1372 \\
+0.0989 \\
+0.0805 \\
+0.0805 \\
+0.1043 \\
+0.1043 \\
+0.0729 \\
+0.0729 \\
+0.0234 \\
+0.0234 \\
+0.1322 \\
+0.0874 \\
+0.0874 \\
+0.0781 \\
+0.0781 \\
+0.0871 \\
+0.0334 \\
+0.0334
+\end{bmatrix}
+$$
+
+
+<br>
 
 # Question 5
 
