@@ -100,7 +100,35 @@ The observation from part B (the product of $A^\top\textbf{1}_3$ always results 
 
 # Question 2
 
-d
+$\textbf{Question 2, Part A}$
+
+The relationship between the eigenvalues of a random matrix $A$ and its transpose $A^\top$ is that they are identical. Several experiments were done, but for brevity only one will be included below.
+
+Based on a random $5\times5$ matrix, the calculated eigenvalues for both $A$ and $A^\top$ are as follows:
+
+| Eigenvalues of $A$         | Eigenvalues of $A^\top$      |
+|----------------------------|------------------------------|
+| $2.5059 + 0.0000i$         | $2.5059 + 0.0000i$           |
+| $0.7261 + 0.0000i$         | $0.7261 + 0.0000i$           |
+| $-0.2861 + 0.0000i$        | $-0.2861 + 0.0000i$          |
+| $-0.0335 + 0.1271i$        | $-0.0335 + 0.1271i$          |
+| $-0.0335 - 0.1271i$        | $-0.0335 - 0.1271i$          |
+
+This was obtained with the following code:
+```matlab
+n = 5;
+A = rand(n, n);
+
+eigs_of_A = eigs(A);
+eigs_of_AT = eigs(A');
+
+[eigs_of_A, eigs_of_AT]
+```
+<br>
+
+$\textbf{Question 2, Part B}$
+
+The eigenvectors of $A$ and $A^\top$ are significantly different
 
 <br>
 
