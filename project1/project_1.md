@@ -523,7 +523,71 @@ disp(diff);
 
 # Question 7
 
-d
+$\textbf{Question 7, Part A}$
 
-<br>
+The vector that the sequence $A^{k}u$ converges to is the (normalized) eigenvector of $A$ with an eigenvalue of $\lambda=1$. As we observed in question 1, $A^{\top}1_{n}=1_n$ is true for column-stochastic matrices, which means that $\lambda=1$ is always an eigenvalue of $A^\top$ Since a matrix and its transpose share the same eigenvalues, $A$ also has an eigenvalue of $\lambda=1$. $A^{k}u$ converges to a vector $w$ such that $Aw=w$, which is the definition of an eigenvector where $Aw=1\cdot w$.
+<br><br>
 
+$\textbf{Question 7, Part B}$
+
+For the wireless sensor mentioned in the introduction, the matrix is:
+$$
+A=
+\begin{bmatrix}
+0.4 & 0.1 \\
+0.6 & 0.9
+\end{bmatrix}
+$$
+
+To find the steady state of the system, we need to find the eignevector $x=\begin{bmatrix}x_1\\x_2\end{bmatrix}$ such that $Ax=x$. In other words, $(A-I)x=0$.
+
+Trivially, $\begin{bmatrix}0.4 & 0.1 \\ 0.6 & 0.9\end{bmatrix}-\begin{bmatrix}1 & 0 \\ 0 & 1\end{bmatrix}=\begin{bmatrix}-0.6 & 0.1 \\ 0.6 & -0.1\end{bmatrix}$, therefore:
+
+$$
+\begin{bmatrix}
+-0.6 & 0.1 \\
+0.6 & -0.1
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+0
+\end{bmatrix}
+$$
+
+This leads to the following two equations
+$$
+\begin{align*}
+-0.6x_1 + 0.1x_2 &= 0 \\
+0.6x_1 - 0.1x_2 &= 0
+\end{align*}
+$$
+
+Equation 2 is just $-1$ times equation 1, so there really is only one independent equation. We now have the relationship $6x_1=x_2$ to consider, after rearranging the equation and multiplying both sides by 10. Since the vector must be stochastic ($x_1+x_2=1$), we can substitute to find the following:
+$$
+\begin{align*}
+x_1 + x_2 &= 1 \\
+x_1 + 6x_1 &= 1 \\
+7x_1 &= 1 \\
+x_1 &= \frac{1}{7} \approx 0.14285714285
+\end{align*}
+$$
+
+It follows that:
+$$
+\begin{align*}
+x_2 &= 6x_1 \\
+    &= 6 \cdot \frac{1}{7} = \frac{6}{7} \approx 0.85714285714
+\end{align*}
+$$
+
+Therefore, the steady state vector is approximately $\begin{bmatrix}0.14285714285 \\ 0.85714285714\end{bmatrix}$. This shows that, when run long term, the sensor transmits approximately $14.3\%$ of the time and is idle approximately $85.7\%$ of the time.
+<br><br>
+
+$\textbf{Question 7, Part C}$
+
+Using eigenvalues and eigenvectors of a matrix $A$ is a lot easier than explicitly computing $A^{k}u$ for a few reasons. Firstly, it provides a solution to the long term behavior after solving a single system of linear equations instead of doing hundreds of matrix multiplication operations. Secondly, doing repeated matrix operations could lead to drift or floating point error. Finally, computing $A^k$ is just computationally expensive for large $k$ values, especially if the matrix is very large, but finding the eigenvectors, especially if just the one with eigenvalue $\lambda=1$ (in the case of a column-stochastic matrix), is much quicker and less computaitonally expensive
