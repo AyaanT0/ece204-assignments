@@ -100,7 +100,12 @@ The observation from part B (the product of $A^\top\textbf{1}_3$ always results 
 
 # Question 2
 
-d
+To prove that $1_n$ is an eigenvector of $A^\top$ for any $n\times n$ column-stochastic matrix $A$, we need to show that $A^\top1_n=1_n$. Let $A$ have entries $A_{i,j}$. By definition, any column-stochastic matrix must have the sums of the entries in each column $j$ equal 1. Therefore:
+$$
+\sum_{i = 1}^n a_{i,j} = 1 \quad \text{ for all } j=1,\dots,n
+$$
+
+The $(i,j)$ entry of the transpose of A, known as $A^\top$ is $a_{j,i}$. Let $u=A^\top1_n$. The $k^{\text{th}}$ entry of the vector $u$ is caluclated by the suming the $k^{\text{th}}$ row of $A^\top$ multiplied by the entries by the entries of $1_n$. Therefore:
 
 <br>
 
