@@ -105,7 +105,7 @@ $$
 \sum_{i = 1}^n a_{i,j} = 1 \quad \text{ for all } j=1,\dots,n
 $$
 
-The $(i,j)$ entry of the transpose of A, known as $A^\top$ is $a_{j,i}$. Let $u=A^\top1_n$. The $k^{\text{th}}$ entry of the vector $u$ is caluclated by the summation of the $k^{\text{th}}$ row of $A^\top$ multiplied by the entries by the entries of $1_n$. Therefore:
+The $(i,j)$ entry of the transpose of A, known as $A^\top$ is $a_{j,i}$. Let $u=A^\top1_n$. The $k^{\text{th}}$ entry of the vector $u$ is caluclated by the summation of the $k^{\text{th}}$ row of $A^\top$ multiplied by the the entries of $1_n$. Therefore:
 
 $$
 u_k=
@@ -397,8 +397,12 @@ $$
 
 # Question 5
 
-d
+To prove that a column-stochastic matrix cannot have an eigenvalue greater than 1, we will assume FTSOC that a column-stochastic matrix $A$ has an eigenvalue $\lambda>1$.
 
+From question 3, we found that a matrix and its transpose share the same eigenvalues. Therefore, is $\lambda>1$ is an eigenvalue of $A$, then $\lambda>1$ is also an eigenvalue of $A^\top$. Therefore, there is an vector $u$ that is nonzero such that:
+$$
+A^\top u=\lambda u
+$$
 <br>
 
 
