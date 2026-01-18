@@ -403,7 +403,43 @@ From question 3, we found that a matrix and its transpose share the same eigenva
 $$
 A^\top u=\lambda u
 $$
-<br>
+
+Let $u_m$ be the entry of $u$ with the largest magnitude. Essentialy:
+$$
+|u_k|\ge|u_i| \quad \text{for all } i
+$$
+
+This means that the $k^{\text{th}}$ entry of the eigenvalue equation will be $(A^\top u)_k=\lambda u_k$
+
+The $k^\text{th}$ entry of $A^\top u$ is the following, as shown in question 2:
+$$
+(A^\top u)_k=\sum_{j=1}^n a_{j,k}u_j
+$$
+
+Since $A$ is a column-stochastic matrix, this means that every entry is non-negative, and the sum of the columns will be 1. Formally:
+$$
+a_{j,k}\ge0 \quad \text{for all }j,k
+\\
+\sum_{j=1}^n a_{j,k}=1
+$$
+
+This sum is essentially the weighted average of the entries of $u$. A weighted average cannot be larger in magnitude than the largest value being averaged, therefore:
+$$
+|\sum_{j=1}^n a_{j,k}u_j|\le|u_k|
+$$
+
+However, from the eigenvalue equation, it follows that:
+$$
+|(A^\top u)_k|=|\lambda u_k|=\lambda|u_k|
+$$
+
+This implies:
+$$
+\lambda|u_k|\le|u_k|
+$$
+
+Since $u_k\neq0$, this implies that $\lambda\le1$. This contradicts our assumption that $\lambda>1$. Therefore, a column-stochastic matrix cannot have an eigenvalue greater than 1.
+<br><br>
 
 
 # Question 6
