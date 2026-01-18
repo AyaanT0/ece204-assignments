@@ -105,8 +105,25 @@ $$
 \sum_{i = 1}^n a_{i,j} = 1 \quad \text{ for all } j=1,\dots,n
 $$
 
-The $(i,j)$ entry of the transpose of A, known as $A^\top$ is $a_{j,i}$. Let $u=A^\top1_n$. The $k^{\text{th}}$ entry of the vector $u$ is caluclated by the suming the $k^{\text{th}}$ row of $A^\top$ multiplied by the entries by the entries of $1_n$. Therefore:
+The $(i,j)$ entry of the transpose of A, known as $A^\top$ is $a_{j,i}$. Let $u=A^\top1_n$. The $k^{\text{th}}$ entry of the vector $u$ is caluclated by the summation of the $k^{\text{th}}$ row of $A^\top$ multiplied by the entries by the entries of $1_n$. Therefore:
 
+$$
+u_k=
+\sum_{j=1}^n(A^\top)_{k,j}\cdot(1_n)_j =
+\sum_{j=1}^na_{j,k}\cdot 1
+$$
+
+When we swap the indices $i$ and $j$, the sum $\sum_{j=1}^n a_{j,k}=1$ is the sum of the $k^{\text{th}}$ column of the original matrix $A$. Since A is column-stochastic, this sum is equal to 1 for all $k=1,\dots,n$. Formally:
+$$
+u_k=1 \quad \text{for all }k=1,\dots,n
+$$
+
+Since every entry of the resulting vector $u$ is 1, we find that:
+$$
+A^\top1_n=1_n
+$$
+
+Therefore, $1_n$ is an eigenvector of $A^\top$ and it has an eigenvalue $\lambda=1$
 <br>
 
 
