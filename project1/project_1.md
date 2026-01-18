@@ -382,10 +382,138 @@ d
 
 # Question 6
 
-d
+$\textbf{Question 6, Part A}$
+
+The sequence coverges to a vector as $k$ increases. To show this, consider the following $5\times5$ column-stochastic matrix $A$:
+$$
+A =
+\begin{bmatrix}
+0.609656319939694 & 0.292000724312840 & 0.170857785592720 & 0.160804401127490 & 0.145857084409758 \\
+0.027487010132864 & 0.246388405335058 & 0.148588196334060 & 0.146299369190919 & 0.359168274815463 \\
+0.239117319368651 & 0.112444468522551 & 0.298110962291621 & 0.212204025906337 & 0.346166681307613 \\
+0.039868049092435 & 0.336951713826623 & 0.309670292555400 & 0.232905837557775 & 0.085927241989041 \\
+0.083871301466356 & 0.012214688002929 & 0.072772763226199 & 0.247786366217481 & 0.062880717478126
+\end{bmatrix}
+$$
+Consider also the following random initial stochastic vector $u$:
+$$
+u =
+\begin{bmatrix}
+0.191121771184060 \\
+0.368060185130220 \\
+0.130537350572259 \\
+0.224449192792449 \\
+0.085831500321011
+\end{bmatrix}
+$$
+
+These were obtained with the following code:
+```matlab
+format long;
+n = 5;
+A = rand(n, n);
+A = A ./ sum(A);
+
+u = rand(n, 1);
+u = u ./ sum(u);
+```
+
+The convergence will be checked by calculating the difference between the norms of consecutive iterations as follows: $||A^{101}u-A^{100}u||_{2}$. This difference was found to be $6.3596\times10^{-17}$ ($6.359601310784502\times10^{17}$ to be more precise). This very small value shows that the values are essentially equal to a high precision.
+
+For completeness, we can observe the vectors after 100 and 101 iterations:
+$$
+u_{100} =
+\begin{bmatrix}
+0.327612410621839 \\
+0.143514967337518 \\
+0.240742772164146 \\
+0.188421965803479 \\
+0.099707884073018
+\end{bmatrix}
+\qquad
+u_{101} =
+\begin{bmatrix}
+0.327612410621839 \\
+0.143514967337518 \\
+0.240742772164146 \\
+0.188421965803479 \\
+0.099707884073018
+\end{bmatrix}
+$$
+
+As shown, the vectors are identical to a very high degree of precision, which shows that they are convergent. Additionally, $A^{k}u$ is still a stochastic vector for all k, and the sum of the entries of $A^{100}u$ is exactly $1.000000000000000$. Analysis was done with several increasing values of $k$ (i.e. $k=5$, $k=10$, $k=25$, $k=40$, and $k=75$), but these are omitted for brevity.
+
+This analysis was done by the following code:
+```matlab
+u_100 = A^100 * u;
+u_101 = A^101 * u;
+
+convergence_of_u = norm(u_101 - u_100);
+sum_u_100 = sum(u_100);
+
+disp(convergence_of_u)
+disp(sum_u_100)
+```
+<br><br>
+
+$\textbf{Question 6, Part B}$
+
+The sequence $A^{k}v$ also converges when an initial vector $v$ is prescribed. Let $v$ be the following stochastic vector:
+$$
+v =
+\begin{bmatrix}
+1 \\
+0 \\
+0 \\
+0 \\
+0
+\end{bmatrix}
+$$
+
+This vector was created with the following code:
+```matlab
+v = zeros(n, 1);
+v(1) = 1;
+```
+
+Using the same matrix $A$ from part A, the same analysis was done and the sequence converged with a difference of $||A^{101}v-A^{100}v||_{2}=1.177569344012831\times10^{-16}$. For completeness, we can observe the resulting vectors after iteration:
+$$
+v_{100} =
+\begin{bmatrix}
+0.327612410621839 \\
+0.143514967337518 \\
+0.240742772164146 \\
+0.188421965803479 \\
+0.099707884073018
+\end{bmatrix}
+\qquad
+v_{101} =
+\begin{bmatrix}
+0.327612410621839 \\
+0.143514967337518 \\
+0.240742772164146 \\
+0.188421965803479 \\
+0.099707884073018
+\end{bmatrix}
+$$
+The code to iterate and perform the analysis is below:
+```matlab
+v_100 = A^100 * v;
+v_101 = A^101 * v;
+
+convergence_of_v = norm(v_101 - v_100);
+sum_v_100 = sum(v_100);
+
+disp(convergence_of_v);
+```
+
+The resulting vector $A^{k}v$ also remains stochastic, with a sum of exactly $1.000000000000000$.
+<br><br><br>
+$\textbf{Question 6, Part C}$
+
+Regardless of the 
 
 <br>
-
 
 # Question 7
 
