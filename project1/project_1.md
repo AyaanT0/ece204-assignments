@@ -418,7 +418,7 @@ u = rand(n, 1);
 u = u ./ sum(u);
 ```
 
-The convergence will be checked by calculating the difference between the norms of consecutive iterations as follows: $||A^{101}u-A^{100}u||_{2}$. This difference was found to be $6.3596\times10^{-17}$ ($6.359601310784502\times10^{17}$ to be more precise). This very small value shows that the values are essentially equal to a high precision.
+The convergence will be checked by calculating the difference between the norms of consecutive iterations as follows: $||A^{101}u-A^{100}u||_{2}$. This difference was found to be $6.3596\times10^{-17}$ ($6.359601310784502\times10^{-17}$ to be more precise). This very small value shows that the values are essentially equal to a high precision.
 
 For completeness, we can observe the vectors after 100 and 101 iterations:
 $$
@@ -511,7 +511,13 @@ The resulting vector $A^{k}v$ also remains stochastic, with a sum of exactly $1.
 <br><br><br>
 $\textbf{Question 6, Part C}$
 
-Regardless of the 
+Regardless of the initial stochastic vector ($u$ or $v$), the sequences $A^{k}u$ and $A^{k}v$ converge to the same vector. To confirm this, the norm of the difference between the two resulting vectors at $k=100$ was calculated to be $8.326672684688674e-17$. This shows that for a column-stochastic matrix, the convergence behavior is independent of the initial starting vector.
+
+This was calculated with the following code:
+```matlab
+diff = norm(u_100 - v_100);
+disp(diff);
+```
 
 <br>
 
