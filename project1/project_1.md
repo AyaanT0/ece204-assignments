@@ -105,7 +105,7 @@ $$
 \sum_{i = 1}^n a_{i,j} = 1 \quad \text{ for all } j=1,\dots,n
 $$
 
-The $(i,j)$ entry of the transpose of A, known as $A^\top$ is $a_{j,i}$. Let $u=A^\top1_n$. The $k^{\text{th}}$ entry of the vector $u$ is caluclated by the summation of the $k^{\text{th}}$ row of $A^\top$ multiplied by the the entries of $1_n$. Therefore:
+The $(i,j)$ entry of the transpose of A, known as $A^\top$, is $a_{j,i}$. Let $u=A^\top1_n$. The $k^{\text{th}}$ entry of the vector $u$ is caluclated by the summation of the $k^{\text{th}}$ row of $A^\top$ multiplied by the the entries of $1_n$. Therefore:
 
 $$
 u_k=
@@ -587,7 +587,7 @@ disp(diff);
 
 $\textbf{Question 7, Part A}$
 
-The vector that the sequence $A^{k}u$ converges to is the (normalized) eigenvector of $A$ with an eigenvalue of $\lambda=1$. As we observed in question 1, $A^{\top}1_{n}=1_n$ is true for column-stochastic matrices, which means that $\lambda=1$ is always an eigenvalue of $A^\top$ Since a matrix and its transpose share the same eigenvalues, $A$ also has an eigenvalue of $\lambda=1$. $A^{k}u$ converges to a vector $w$ such that $Aw=w$, which is the definition of an eigenvector where $Aw=1\cdot w$.
+The vector that the sequence $A^{k}u$ converges to is the (normalized) eigenvector of $A$ with an eigenvalue of $\lambda=1$. As we observed in question 1, $A^{\top}1_{n}=1_n$ is true for column-stochastic matrices, which means that $\lambda=1$ is always an eigenvalue of $A^\top$. Since a matrix and its transpose share the same eigenvalues, $A$ also has an eigenvalue of $\lambda=1$. $A^{k}u$ converges to a vector $w$ such that $Aw=w$, which is the definition of an eigenvector where $Aw=1\cdot w$.
 <br><br>
 
 $\textbf{Question 7, Part B}$
