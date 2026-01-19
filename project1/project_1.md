@@ -392,7 +392,7 @@ $$
 \end{bmatrix}
 $$
 
-
+From these results, it is trivial to see that the maximum magnitude of an eigenvalue for a column-stochastic matrix is 1. This means that $|\lambda|\leq 1$ and there will always be one eigenvalue where $\lambda=1$. From various trials using Matlab, it seems that this is true regardless of whether there are real or complex eigenvalues, or ones with negative real components.
 <br>
 
 # Question 5
