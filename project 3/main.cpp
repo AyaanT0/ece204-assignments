@@ -1,7 +1,6 @@
 #include <iostream>
-#include <algorithm>
-#include <cmath>
 #include <stdexcept>
+#include <cmath>
 
 // Function declarations
 int main();
@@ -106,7 +105,8 @@ double divide( double r, double poly[], unsigned int degree ) {
 double horner( double x, double coeffs[], unsigned int degree ) {
   double result{ coeffs[degree] };
 
-  for ( unsigned int k{ degree - 1 }; k < degree; --k ) {
+  for ( unsigned int k{ degree }; k > 0; ) {
+    --k;
     result = result*x + coeffs[k];
   }
 
