@@ -82,7 +82,19 @@ unsigned int roots( double coeffs[], unsigned int degree ) {
   if (degree == 0) return 0; // Const has no roots
   if (coeffs[degree] == 0.0) return NAN; // Leading coeff must be nonzero
 
-  return degree;
+  unsigned int deg = degree;
+
+  // Loop to find root, divide, and reduce degree
+  while (deg > 0) {
+    double root = newton(coeffs, deg);
+    if (root==NAN) break; // No real roots found by newtons method
+
+    divide(root, coeffs, deg); //divide polynomial by x-r
+    coeffs[deg] = root; // store the root at the correct index
+    deg--; // reduce the degree
+  }
+  // i think i need to sort here
+  return deg;
 }
 
 // Newton's method to approx a root
