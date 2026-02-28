@@ -116,7 +116,11 @@ double horner( double x, double coeffs[], unsigned int degree ) {
 
 // You need to implement this
 double dhorner( double x, double coeffs[], unsigned int degree ) {
-  return 0.0;
+  double answer = degree * coeffs[degree];
+  for (unsigned int k = degree - 1; k > 0; k--) {
+    answer = answer * x + k * coeffs[k];
+  }
+  return answer;
 }
 
 void print(
