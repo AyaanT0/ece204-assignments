@@ -86,7 +86,21 @@ unsigned int roots( double coeffs[], unsigned int degree ) {
 // You must implement Newton's method on polynomials.
 // You are welcome to change the signature.
 double newton( double coeffs[], unsigned int degree ) {
-  return NAN;
+  // i think something similar to dhorner happens here, return if deg is 0
+  // perhaps also need to assert coeffs[degree] cant be 0 as well, leading coeff cant be 0 i dont think
+  double init_guess = 211.19343; // Student number is 21119343
+
+  for (int i = 0; i < 100; i++) { // Max iterations arbitrarily set to 100
+    double f = horner(init_guess, coeffs, degree);
+    double df = dhorner(init_guess, coeffs, degree);
+
+    if (df == 0.0) return NAN; // If derivative is zero then Newton's method will not work
+
+    double new_guess = init_guess - f / df; // Update the guess
+    if ((new_guess - init_guess) == 0) return new_guess; // If step size is zero, converged
+    init_guess = new_guess;
+  }
+  return NAN; // If we have done all iterations without convergence, we return a failure
 }
 
 // The polynomial division algorithm is implemented for you. 
