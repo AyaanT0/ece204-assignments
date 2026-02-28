@@ -87,13 +87,13 @@ unsigned int roots( double coeffs[], unsigned int degree ) {
   // Loop to find root, divide, and reduce degree
   while (deg > 0) {
     double root = newton(coeffs, deg);
-    if (root==NAN) break; // No real roots found by newtons method
+    if (std::isnan(root)) break; // No real roots found by newtons method
 
     divide(root, coeffs, deg); //divide polynomial by x-r
     coeffs[deg] = root; // store the root at the correct index
     deg--; // reduce the degree
   }
-  // i think i need to sort here
+  std::sort(coeffs + deg + 1, coeffs + degree + 1); // Sort the real roots at indices n + 1 in ascending order
   return deg;
 }
 
