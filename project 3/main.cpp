@@ -77,9 +77,11 @@ int main() {
   return 0;
 }
 
-// You must implement the 'roots(...)' function with
-// the parameters and return value as specified here.
+// Find all real roots of polynomial
 unsigned int roots( double coeffs[], unsigned int degree ) {
+  if (degree == 0) return 0; // Const has no roots
+  if (coeffs[degree] == 0.0) return NAN; // Leading coeff must be nonzero
+
   return degree;
 }
 
@@ -95,7 +97,8 @@ double newton( double coeffs[], unsigned int degree ) {
     double f = horner(init_guess, coeffs, degree);
     double df = dhorner(init_guess, coeffs, degree);
 
-    if (std::abs(df) < 1e-10) return NAN; // If derivative is (close to) zero then Newton's method will not work
+    if (std::abs(df) < 1e-9) return NAN; // If derivative is (close to) zero then Newton's method will not work
+    if (std::abs(f) < 1e-9) return init_guess; // If (close to) zero, found root
 
     double new_guess = init_guess - f / df; // Update the guess (newtons method formula)
     if (std::abs(new_guess - init_guess) < 1e-9) return new_guess; // If step size is super close to zero, converged
