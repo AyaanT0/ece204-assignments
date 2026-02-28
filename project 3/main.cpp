@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <cmath>
+#include <algorithm>
 
 // Function declarations
 int main();
