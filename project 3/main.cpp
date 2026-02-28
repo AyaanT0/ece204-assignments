@@ -83,21 +83,22 @@ unsigned int roots( double coeffs[], unsigned int degree ) {
   return degree;
 }
 
-// You must implement Newton's method on polynomials.
-// You are welcome to change the signature.
+// Newton's method to approx a root
 double newton( double coeffs[], unsigned int degree ) {
-  // i think something similar to dhorner happens here, return if deg is 0
-  // perhaps also need to assert coeffs[degree] cant be 0 as well, leading coeff cant be 0 i dont think
-  double init_guess = 211.19343; // Student number is 21119343
+  if (degree == 0) return NAN; // Const has no roots
+  if (coeffs[degree] == 0.0) return NAN; // Leading coeff must be nonzero
 
-  for (int i = 0; i < 100; i++) { // Max iterations arbitrarily set to 100
+  double init_guess = 211.19343; // Student number is 21119343 (arbitrary initial guess)
+
+  // Iterate to find convergence and determine root
+  for (int i = 0; i < 1000; i++) { // Max iterations arbitrarily set to 1000
     double f = horner(init_guess, coeffs, degree);
     double df = dhorner(init_guess, coeffs, degree);
 
-    if (df == 0.0) return NAN; // If derivative is zero then Newton's method will not work
+    if (std::abs(df) < 1e-10) return NAN; // If derivative is (close to) zero then Newton's method will not work
 
-    double new_guess = init_guess - f / df; // Update the guess
-    if ((new_guess - init_guess) == 0) return new_guess; // If step size is zero, converged
+    double new_guess = init_guess - f / df; // Update the guess (newtons method formula)
+    if (std::abs(new_guess - init_guess) < 1e-9) return new_guess; // If step size is super close to zero, converged
     init_guess = new_guess;
   }
   return NAN; // If we have done all iterations without convergence, we return a failure
