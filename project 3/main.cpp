@@ -114,13 +114,19 @@ double horner( double x, double coeffs[], unsigned int degree ) {
   return result;
 }
 
-// You need to implement this
+// Horner's rule to eval the derivative of a polynomial at x
 double dhorner( double x, double coeffs[], unsigned int degree ) {
-  double answer = degree * coeffs[degree];
+  if (degree == 0) return 0.0;
+
+  // Start with the leading coeff
+  double result = degree * coeffs[degree];
+
+  // Horner's rule used for the remaining terms
   for (unsigned int k = degree - 1; k > 0; k--) {
-    answer = answer * x + k * coeffs[k];
+    // Multiply coeffs by corresponding degree k
+    result = result * x + k * coeffs[k];
   }
-  return answer;
+  return result;
 }
 
 void print(
